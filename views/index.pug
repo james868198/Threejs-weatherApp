@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  #container
+  .weatherboard
+    .weatherboard-container
+      #weatherData.weatherboard-inner
+        h2 #{city}
+        h2 #{time}
+        h2 #{temp} F
+  .loading
+    #loading.loading-container
+
+  script.
+    const resData = {
+        status: "#{status}",
+        city: "#{city}",
+        temp: "#{temp}",
+        timestamp: "#{timestamp}",
+        humidity: "#{humidity}",
+        clouds: "#{clouds}",
+        rain: "#{rain}",
+        wind: "#{wind}",
+        sunrise: "#{sunrise}",
+        sunset: "#{sunset}",
+    };
+    
+  script(type= "module" src="/javascripts/weather.js")
+

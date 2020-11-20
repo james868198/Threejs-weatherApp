@@ -1,0 +1,209 @@
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	/* background-color: #000; */
+	background: #000;
+	color: #fff;
+	font-family: Monospace;
+	font-size: 13px;
+	line-height: 24px;
+	overflow: hidden;
+	overscroll-behavior: none;
+	perspective: 40em;
+}
+
+a {
+	color: #ff0;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+button {
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+#info {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: center;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	z-index: 1; /* TODO Solve this in HTML */
+}
+
+a, button, input, select {
+	pointer-events: auto;
+}
+
+.dg.ac {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	z-index: 2 !important; /* TODO Solve this in HTML */
+}
+
+#overlay {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0,0,0,0.7);
+}
+
+	#overlay button {
+		background: #ffffff;
+		border: 0;
+		color: #000000;
+		padding: 16px 20px;
+		text-transform: uppercase;
+		cursor: pointer;
+	}
+
+#notSupported {
+	width: 50%;
+	margin: auto;
+	background-color: #f00;
+	margin-top: 20px;
+	padding: 10px;
+}
+/* weatherboard  */
+
+.weatherboard {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.weatherboard-container {
+	display: inline-block;
+	max-width: 430px;
+	padding: 35px;
+	border-radius: 15px;
+	color:white;
+	background: rgba(8,8,8,0.7);
+	box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
+}
+.weatherboard-inner {
+	
+}
+/* loader  */
+
+\:root {
+	font-size: calc(16px + (24 - 16)*(100vw - 320px)/ (1280 - 320));
+}
+
+body, .preloader {
+	display: flex;
+}
+.loading {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+}
+.loading-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding-top: 30vh;
+	text-align: center;
+	background-color: #000000;
+
+}
+.preloader {
+	animation: tiltSpin 8s linear infinite;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	width: 17em;
+	height: 17em;
+	color: #ee773a;
+	font: 1em Dosis, sans-serif;
+	line-height: 1.5;
+	z-index: 999;
+}
+
+.preloader, .preloader__ring {
+	transform-style: preserve-3d;
+}
+
+.preloader__ring {
+	animation-name: spin;
+	animation-duration: 4s;
+	animation-timing-function: inherit;
+	animation-iteration-count: inherit;
+	font-size: 2em;
+	position: relative;
+	height: 3rem;
+	width: 1.5rem;
+}
+
+.preloader__ring:nth-child(even) {
+	animation-direction: reverse;
+}
+
+.preloader__sector {
+	font-weight: 600;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+	text-transform: uppercase;
+	transform: translateZ(7rem);
+}
+
+.preloader__sector, .preloader__sector:empty:before {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+.preloader__sector:empty:before {
+	background: linear-gradient(transparent 45%, currentColor 45% 55%, transparent 55%);
+	content: "";
+}
+
+/* Animations */
+@keyframes tiltSpin {
+	from {
+		transform: rotateY(0) rotateX(30deg);
+	}
+
+	to {
+		transform: rotateY(1turn) rotateX(30deg);
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotateY(0);
+	}
+
+	to {
+		transform: rotateY(1turn);
+	}
+}
